@@ -52,7 +52,7 @@ class FacebookVideoDownloader:
         return s
 
     def init_driver(self):
-        self.driver = webdriver.Chrome(options=self.driver_options())
+        self.driver = webdriver.Chrome(service=self.driver_services() ,options=self.driver_options())
         self.driver.get(self.url)
         self.page_soup = self.driver.page_source
         self.driver.quit()
