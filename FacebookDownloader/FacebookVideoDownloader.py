@@ -102,7 +102,3 @@ class FacebookVideoDownloader:
         response = requests.get(self.get_streams()['sd_url'], stream=True)
         if response.status_code == 200:
             return 'sd_url'
-        
-if __name__ == '__main__':
-    fb = FacebookVideoDownloader('https://www.facebook.com/facebook/videos/10153231379946729/');
-    print(fb.get_title())
