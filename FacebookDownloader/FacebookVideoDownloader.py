@@ -6,6 +6,8 @@ from bs4 import BeautifulSoup
 import requests
 import platform
 import pkg_resources
+import warnings
+warnings.filterwarnings("ignore")
 
 class FacebookVideoDownloader:
 
@@ -15,6 +17,7 @@ class FacebookVideoDownloader:
 
     def driver_options(self):
         options = webdriver.ChromeOptions()
+        options.add_experimental_option('excludeSwitches', ['enable-logging'])
         options.add_argument("--no-first-run")
         options.add_argument("headless")
         options.add_argument("--disable-gpu")
@@ -25,8 +28,7 @@ class FacebookVideoDownloader:
         options.add_argument("--disable-xss-auditor")
         options.add_argument("--disable-web-security")
         options.add_argument("--allow-running-insecure-content")
-        options.set_capability("goog:loggingPrefs", {  "browser": "ALL"})
-        options.add_argument("--log-level=5")
+        options.add_argument("--log-level=1")
         options.add_experimental_option("prefs", 
             {
                 "profile.default_content_setting_values.notifications": 2 
@@ -101,3 +103,6 @@ class FacebookVideoDownloader:
         if response.status_code == 200:
             return 'sd_url'
         
+if __name__ == '__main__':
+    fb = FacebookVideoDownloader('https://www.facebook.com/facebook/videos/10153231379946729/');
+    print(fb.get_title())
