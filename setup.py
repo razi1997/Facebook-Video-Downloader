@@ -7,9 +7,9 @@ here = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
-VERSION = '1.0.0'
+VERSION = '1.0.1'
 DESCRIPTION = 'Facebook Video Downloading via Python Package'
-LONG_DESCRIPTION = 'A package that allows to download video from Facebook'
+LONG_DESCRIPTION = 'A package that allows you to download video from Facebook'
 
 # Setting up
 setup(
@@ -24,12 +24,4 @@ setup(
     package_data={'fbd': ['webdrivers/*']},
     install_requires=['beautifulsoup4', 'selenium'],
     keywords=['python', 'facebook', 'video', 'downloader', 'facebook video downloader', 'downlaod facebook videos'],
-    classifiers=[
-        "Development Status :: 1 - Planning",
-        "Intended Audience :: Developers",
-        "Programming Language :: Python :: 3",
-        "Operating System :: Unix",
-        "Operating System :: MacOS :: MacOS X",
-        "Operating System :: Microsoft :: Windows",
-    ]
 )
