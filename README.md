@@ -5,10 +5,10 @@ Under construction! Not ready for use yet! Currently experimenting and planning!
 Developed by Razi Ahmed Iqbal (c) 2023
 
 ## How To Install
-    pip install Facebook-Video-Downloader
+    pip install FVD
 ## Usage
 ```python
-from fbd import FacebookVideoDownloader as FVD
+from FacebookDownloader import FacebookVideoDownloader as FVD
 ```
 Calling module and Initializing Class
 ```python
