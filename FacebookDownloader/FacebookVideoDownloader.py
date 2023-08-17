@@ -7,6 +7,7 @@ import requests
 import platform
 import pkg_resources
 import warnings
+from webdriver_manager.chrome import ChromeDriverManager
 warnings.filterwarnings("ignore")
 
 class FacebookVideoDownloader:
@@ -36,7 +37,7 @@ class FacebookVideoDownloader:
         )
         return options
     
-    def detect_os():
+    def detect_os(self):
         os_name = platform.system()
         if os_name == "Windows":
             return pkg_resources.resource_filename(__name__, 'webdriver/win/chromedriver.exe')
@@ -47,12 +48,9 @@ class FacebookVideoDownloader:
         else:
             print("Operating system detection not supported.")
     
-    def driver_services(self):
-        s = ChromeServices(self.detect_os())
-        return s
 
     def init_driver(self):
-        self.driver = webdriver.Chrome(service=self.driver_services() ,options=self.driver_options())
+        self.driver = webdriver.Chrome(service=ChromeServices(ChromeDriverManager().install()) ,options=self.driver_options())
         self.driver.get(self.url)
         self.page_soup = self.driver.page_source
         self.driver.quit()
