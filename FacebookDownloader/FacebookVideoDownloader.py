@@ -36,7 +36,7 @@ class FacebookVideoDownloader:
         )
         return options
     
-    def detect_os():
+    def detect_os(self):
         os_name = platform.system()
         if os_name == "Windows":
             return pkg_resources.resource_filename(__name__, 'webdriver/win/chromedriver.exe')
