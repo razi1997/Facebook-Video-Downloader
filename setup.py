@@ -21,7 +21,7 @@ setup(
     long_description_content_type="text/markdown",
     long_description=long_description,
     packages=find_packages(),
-    package_data={'fbd': ['webdrivers/*']},
+    package_data={'FacebookDownloader': ['webdrivers/*']},
     install_requires=['beautifulsoup4', 'selenium'],
     keywords=['python', 'facebook', 'video', 'downloader', 'facebook video downloader', 'downlaod facebook videos'],
 )
