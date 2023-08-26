@@ -64,11 +64,11 @@ class FacebookVideoDownloader:
 
     def init_driver(self):
         env = self.detect_os()
+        print(env)
         if env == 'DYNO':
             service = ChromeServices(executable_path=str(os.environ.get("CHROMEDRIVER_PATH")))
         else:
             service = self.driver_services()
-
         self.driver = webdriver.Chrome(service=service, options=self.driver_options())
         self.driver.get(self.url)
         self.page_soup = self.driver.page_source
